@@ -9,8 +9,7 @@ async function getData() {
       title,
       description,
       "imageUrl": productImage.asset->url,
-      price,
-   
+      price
     }`
   );
 
@@ -22,29 +21,26 @@ export default async function Blog() {
   const data = await getData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-3xl font-bold mb-8">Sanity Tutorial</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <main className="flex min-h-screen flex-col items-center p-6">
+      <h1 className="text-3xl font-bold mb-8">Trending Products</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
         {data.length > 0 ? (
           data.map((val: any, i: number) => (
             <div
               key={i}
-              className="bg-gray-800 text-white p-4 flex flex-col items-center rounded-2xl"
+              className="border p-4 rounded-lg flex flex-col items-center hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer"
             >
               <Image
                 src={val.imageUrl}
-                alt={val.name}
-                width={128}
-                height={128}
-                className="w-32 h-32 object-cover mb-4 rounded-2xl"
+                alt={val.title}
+                width={300} 
+                height={300} 
+                className="w-full h-[250px] object-cover mb-4 rounded-lg"
               />
-              <h2 className="text-2xl font-semibold mb-2">{val.title}</h2>
-              <p className="text-green-600 font-bold py-2 px-4 rounded hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
-                ${val.price}
-              </p>
-              
-              <Link href={`/blog/${val._id}`}>
-                <button className="bg-blue-800 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded p-4 mt-4 hover:shadow-xl hover:scale-[1.10] transition duration-300 cursor-pointer">
+              <h2 className="text-lg font-bold mb-2">{val.title}</h2>
+              <p className="text-green-700 font-bold mb-2">${val.price}</p>
+              <Link href={`/blog/${val.title}`}>
+                <button className="bg-blue-800 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
                   View Details
                 </button>
               </Link>
@@ -57,5 +53,3 @@ export default async function Blog() {
     </main>
   );
 }
-
-

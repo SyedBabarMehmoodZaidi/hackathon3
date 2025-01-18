@@ -8,14 +8,14 @@ export default function OrderConfirmation() {
           Order Has Been Done!
         </h1>
         <p className="text-lg text-gray-700 mb-4">
-          Thank you for your order! We're excited to serve you. Your order has
+          Thank you for your order! We&apos;re excited to serve you. Your order has
           been successfully placed and is now being processed.
         </p>
         <div className="text-left text-gray-600">
-          <p className="font-semibold">✨ What's next? ✨</p>
+          <p className="font-semibold">✨ What&apos;s next? ✨</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>We are carefully processing your order.</li>
-            <li>You'll receive tracking details soon.</li>
+            <li>You&apos;ll receive tracking details soon.</li>
           </ul>
         </div>
 

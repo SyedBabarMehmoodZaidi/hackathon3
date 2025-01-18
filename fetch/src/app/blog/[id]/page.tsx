@@ -7,11 +7,12 @@ import Link from "next/link";
 // Fetch data function based on ID
 async function getProductData(id: string) {
   const fetchData = await client.fetch(
-    `*[_type == 'product' && _id == $id]{
+    `*[_type == 'product']{
       title,
       description,
       "imageUrl": productImage.asset->url,
       price,
+   
     }`,
     { id }
   );
@@ -20,8 +21,9 @@ async function getProductData(id: string) {
 }
 
 export default async function ProductDetail({ params }: { params: { id: string } }) {
-  const { id } = params; // Get product id from the URL
+  const { id } = await params; // Get product id from the URL
   const product = await getProductData(id); // Fetch product details
+  console.log(product);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -30,7 +32,7 @@ export default async function ProductDetail({ params }: { params: { id: string }
           <div className="relative">
             <Image
               src={product.imageUrl}
-              alt={product.name}
+              alt={product.title}
               width={300}
               height={300}
               className="mx-auto lg:ml-28 block"
@@ -47,14 +49,14 @@ export default async function ProductDetail({ params }: { params: { id: string }
             <span className="text-[#23A6F0] font-medium">In Stock</span>
           </p>
           <Add />
-          <p className="w-[464px] h-[40px] mt-10 text-[#858585] font- text-[12px]">
+          <p className="w-[464px] h-[40px] mt-4 text-[#858585] font- text-[12px]">
             {product.description}
           </p>
-          <p className="mt-36">
+          <p className="mt-72">
             <Image src={Dots} alt="Dot" width={150} height={30} />
           </p>
           <Link href={`/blog/${id}/orderConfirmation`}>
-            <button className="w-[189px] h-[52px] rounded-[5px] flex justify-center items-center bg-[#23A6F0] text-white text-[14px] hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
+            <button className="w-[189px] h-[52px] rounded-[5px] flex justify-center items-center bg-[#23A6F0] text-white text-[14px] mt-4 hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
               Add to Cart
             </button>
           </Link>
