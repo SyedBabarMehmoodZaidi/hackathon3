@@ -20,7 +20,7 @@ async function getProductData(id: string) {
   return fetchData[0]; // Return the first product object
 }
 
-export default async function ProductDetail({ params }: { params: { id: string } }) {
+export default async function ProductDetail({params} :{params : Promise<{id :string}>} ) {
   const { id } = await params; // Get product id from the URL
   const product = await getProductData(id); // Fetch product details
   console.log(product);

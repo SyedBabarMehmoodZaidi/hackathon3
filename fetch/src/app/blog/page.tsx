@@ -2,8 +2,15 @@ import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Product {
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+}
 // Fetch data function
-async function getData() {
+// Fetch data function
+async function getData(): Promise<Product[]> {
   const fetchData = await client.fetch(
     `*[_type == 'product']{
       title,
@@ -18,14 +25,14 @@ async function getData() {
 
 // Blog Component
 export default async function Blog() {
-  const data = await getData();
+  const data: Product[] = await getData();
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
       <h1 className="text-3xl font-bold mb-8">Trending Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
         {data.length > 0 ? (
-          data.map((val: any, i: number) => (
+          data.map((val: Product, i: number) => (
             <div
               key={i}
               className="border p-4 rounded-lg flex flex-col items-center hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer"
@@ -33,8 +40,8 @@ export default async function Blog() {
               <Image
                 src={val.imageUrl}
                 alt={val.title}
-                width={300} 
-                height={300} 
+                width={300}
+                height={300}
                 className="w-full h-[250px] object-cover mb-4 rounded-lg"
               />
               <h2 className="text-lg font-bold mb-2">{val.title}</h2>

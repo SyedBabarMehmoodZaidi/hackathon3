@@ -27,8 +27,34 @@ import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Product {
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+}
+
+// // Fetch data function
+// async function getData(): Promise<Product[]> {
+//   const fetchData = await client.fetch(
+//     `*[_type == 'product']{
+//       title,
+//       description,
+//       "imageUrl": productImage.asset->url,
+//       price
+//     }`
+//   );
+
+//   return fetchData;
+// }
+
+// // Blog Component
+// export default async function Blog() {
+//   const data: Product[] = await getData();
+
+
 // Fetch data function
-async function getData() {
+async function getData(): Promise<Product[]> {
   const fetchData = await client.fetch(
     `*[_type == 'product']{
       title,
@@ -41,13 +67,15 @@ async function getData() {
   return fetchData;
 }
 
+
+
 // Blog Component
 export default async function Blog() {
-  const data = await getData();
+  const data: Product[] = await getData();
 
   return (
     <main className="flex flex-col min-h-screen">
-      {/* Other Content Above */}
+      
       <section className="flex-grow">
       <div>
        {/* Shop Section */}
@@ -425,7 +453,7 @@ export default async function Blog() {
         <h1 className="text-3xl font-bold mb-8 text-center">Latest Trending Products</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
           {data.length > 0 ? (
-            data.map((val: any, i: number) => (
+            data.map((val: Product, i: number) => (
               <div
                 key={i}
                 className="border p-4 rounded-lg flex flex-col items-center hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer"
