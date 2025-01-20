@@ -12,7 +12,6 @@ async function getProductData(id: string) {
       description,
       "imageUrl": productImage.asset->url,
       price,
-   
     }`,
     { id }
   );
@@ -20,7 +19,7 @@ async function getProductData(id: string) {
   return fetchData[0]; // Return the first product object
 }
 
-export default async function ProductDetail({params} :{params : Promise<{id :string}>} ) {
+export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params; // Get product id from the URL
   const product = await getProductData(id); // Fetch product details
   console.log(product);
@@ -48,7 +47,10 @@ export default async function ProductDetail({params} :{params : Promise<{id :str
             Availability:{" "}
             <span className="text-[#23A6F0] font-medium">In Stock</span>
           </p>
-          <Add />
+          
+          {/* Pass product price to Add component */}
+          <Add productPrice={product.price} />
+
           <p className="w-[464px] h-[40px] mt-4 text-[#858585] font- text-[12px]">
             {product.description}
           </p>
