@@ -3,16 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
+  _id: string; // Include _id in the Product interface
   title: string;
   description: string;
   imageUrl: string;
   price: number;
 }
-// Fetch data function
+
 // Fetch data function
 async function getData(): Promise<Product[]> {
   const fetchData = await client.fetch(
     `*[_type == 'product']{
+      _id,
       title,
       description,
       "imageUrl": productImage.asset->url,
@@ -46,7 +48,7 @@ export default async function Blog() {
               />
               <h2 className="text-lg font-bold mb-2">{val.title}</h2>
               <p className="text-green-700 font-bold mb-2">${val.price}</p>
-              <Link href={`/blog/${val.title}`}>
+              <Link href={`/blog/${val._id}`}>
                 <button className="bg-blue-800 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
                   View Details
                 </button>

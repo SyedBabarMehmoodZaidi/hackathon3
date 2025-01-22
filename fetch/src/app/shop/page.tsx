@@ -57,6 +57,7 @@ interface Product {
 async function getData(): Promise<Product[]> {
   const fetchData = await client.fetch(
     `*[_type == 'product']{
+      _id,
       title,
       description,
       "imageUrl": productImage.asset->url,
