@@ -28,6 +28,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
+  _id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -468,7 +469,7 @@ export default async function Blog() {
                 />
                 <h2 className="text-lg font-bold mb-2">{val.title}</h2>
                 <p className="text-green-700 font-bold mb-2">${val.price}</p>
-                <Link href={`/blog/${val.title}`}>
+                <Link href={`/blog/${val._id}`}>
                   <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded transition duration-300">
                     View Details
                   </button>

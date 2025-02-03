@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 import Couples from '/public/Images/couples.png'
+import Link from 'next/link';
 
 export default function Banner () {
   return (
@@ -28,11 +29,13 @@ export default function Banner () {
             We know how large objects will act, but things on a small scale.
           </h4>
           <div className="flex flex-wrap justify-center lg:justify-start gap-[10px] ">
+          <Link href='/blog'>
             <button className="w-[140px] lg:w-[156px] h-[52px] rounded-[5px] py-[12px] px-[20px] lg:px-[40px] bg-[#2DC071] hover:bg-green-700 flex justify-center items-center hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
               <h1 className="text-[14px] font-Montserrat font-bold text-white">
-                BUY NOW
+               BUY NOW 
               </h1>
             </button>
+            </Link>
             <button className="w-[140px] lg:w-[156px] h-[52px] rounded-[5px] py-[12px] px-[20px] lg:px-[40px] border border-[#535e58] hover:bg-green-700  flex justify-center items-center hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
               <h1 className="text-[14px] font-Montserrat font-bold whitespace-nowrap text-[#2DC071] hover:text-white">
                 READ MORE

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import GreenMan from '/public/Images/greenman.png'
+import Link from 'next/link'
 const ProductBanner = () => {
   return (
   
@@ -16,9 +17,11 @@ const ProductBanner = () => {
       </p>
       <h3 className="text-[24px] text-white">$16.48</h3>
       <div className="flex justify-center sm:justify-start gap-[34px]">
+      <Link href="/blog">
         <button className="w-[184px] h-[52px] rounded-[5px] px-[40px] bg-[#2DC071] hover:bg-green-700 py-[15px] flex gap-[10px] hover:shadow-xl hover:scale-[1.05] transition duration-300 cursor-pointer">
           <h1 className="text-[14px] text-white justify-center">ADD TO CART</h1>
         </button>
+        </Link>
       </div>
     </div>
 

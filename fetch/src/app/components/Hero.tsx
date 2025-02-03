@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import HeroImg from '/public/Images/HeroImg.jpg';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -12,9 +13,11 @@ const Hero = () => {
         <p className="font-normal text-[14px] md:text-[20px] text-white">
           We know how large objects will act, but things on a small scale.
         </p>
+        <Link href='/blog'>
         <button className="bg-[#2DC071] hover:bg-green-700 w-[180px] md:w-[221px] h-[50px] md:h-[62px] text-white rounded-[5px]">
           Shop Now
         </button>
+        </Link>
       </div>
     </div>
   );

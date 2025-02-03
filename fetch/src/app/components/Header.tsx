@@ -36,11 +36,17 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className='hidden sm:flex gap-4 text-gray-500 text-[30px] items-center'>
+          <div className="flex justify-start items-center">
+              <ul className="flex space-x-4">
+                 <li className="cursor-pointer text-[#23A6F0] hover:text-blue-800"><Link href="/login">Login</Link></li>
+                 <li className="cursor-pointer text-[#23A6F0] hover:text-blue-800"><Link href="/signup">Signup</Link></li>
+              </ul>
+          </div>
             {/* Search Icon */}
             <BsSearch />
 
             {/* Heart Icon with Text "1" */}
-            <div className='relative text-[#23A6F0]'>
+            <div className='relative text-[#23A6F0] hover:text-blue-800 cursor-pointer'>
               <FiHeart />
               <div className='absolute top-0 right-0 text-[12px] text-[#23A6F0]'>
                 1
@@ -48,7 +54,7 @@ const Header = () => {
             </div>
 
             {/* Cart Icon with Text "1" */}
-            <div className='relative text-[#23A6F0]'>
+            <div className='relative text-[#23A6F0] hover:text-blue-800 cursor-pointer'>
               <IoCartOutline />
               <div className='absolute top-0 right-0 text-[12px] text-[#23A6F0]'>
                 1
@@ -69,8 +75,11 @@ const Header = () => {
               <li className='text-center font-semibold'><Link href="/">Home</Link></li>
               <li className='text-center font-semibold'><Link href="/shop">Shop</Link></li>
               <li className='text-center font-semibold'><Link href="/about">About</Link></li>
+              <li className='text-center font-semibold'><Link href="/blog">Products</Link></li>
               <li className='text-center font-semibold'><Link href="/pages">Pages</Link></li>
               <li className='text-center font-semibold'><Link href="/contact">Contact</Link></li>
+              <li className="text-center font-semibold"><Link href="/login">Login</Link></li>
+              <li className="text-center font-semibold"><Link href="/signup">Signup</Link></li>
             </ul>
           </div>
         )}

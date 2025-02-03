@@ -9,6 +9,7 @@ import card7 from "/public/Images/product-cover-5 (14).png"
 import card8 from "/public/Images/product-cover-5 (15).png"
 import Dots from "/public/Images/Dotss.png"
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 
@@ -42,9 +43,12 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
+
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
             </p>
@@ -60,8 +64,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -77,8 +83,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -94,8 +102,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -112,8 +122,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -129,8 +141,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -146,8 +160,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
@@ -163,8 +179,10 @@ const Products = () => {
           <h1 className="text-lg font-bold mb-2">Graphic Designer</h1>
           <p className="text-gray-600 mb-1">English Department</p>
           <p className="text-sm">
+            <Link href="/blog">
             <span className="text-gray-500 line-through mr-2">$16.48</span>
             <span className="text-green-700 font-bold hover:text-green-900">$6.48</span>
+            </Link> 
           </p>
           <p className='mt-2'>
               <Image src={Dots} alt='Dot' width={82.23} height={16} />
