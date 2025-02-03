@@ -1,39 +1,126 @@
-import Link from "next/link";
+"use client"
+import { useState } from 'react';
 
-export default function OrderConfirmation() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-yellow-500 to-blue-600 p-8">
-      <div className="bg-white shadow-lg rounded-lg p-10 text-center max-w-md">
-        <h1 className="text-4xl font-bold text-green-600 mb-4">
-          Order Has Been Done!
-        </h1>
-        <p className="text-lg text-gray-700 mb-4">
-          Thank you for your order! We&apos;re excited to serve you. Your order has
-          been successfully placed and is now being processed.
-        </p>
-        <div className="text-left text-gray-600">
-          <p className="font-semibold">✨ What&apos;s next? ✨</p>
-          <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>We are carefully processing your order.</li>
-            <li>You&apos;ll receive tracking details soon.</li>
-          </ul>
-        </div>
-
-        <div className="flex justify-center items-center gap-8">
-          <Link href="/blog">
-            <button className="mt-6 px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300">
-              Continue Shopping
-            </button>
-          </Link>
-          <Link href="/">
-            <button className="mt-6 px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300">
-              Back to Home Page
-            </button>
-          </Link>
-        </div>
-      </div>
-    </main>
-  );
+interface CustomerData {
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
 }
 
-  
+const OrderForm = () => {
+  const [customerData, setCustomerData] = useState<CustomerData>({
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+  });
+  const [showModal, setShowModal] = useState<boolean>(false); // State for modal visibility
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setCustomerData({
+      ...customerData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Order Submitted:', customerData);
+    setShowModal(true); // Show the modal after order submission
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close the modal
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-semibold text-gray-800">Order Form</h2>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="flex flex-col">
+          <label htmlFor="name" className="text-lg text-gray-700 mb-2">Name</label>
+          <input
+            type="text"
+            name="name"
+            value={customerData.name}
+            onChange={handleChange}
+            id="name"
+            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="address" className="text-lg text-gray-700 mb-2">Address</label>
+          <input
+            type="text"
+            name="address"
+            value={customerData.address}
+            onChange={handleChange}
+            id="address"
+            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your address"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="phone" className="text-lg text-gray-700 mb-2">Phone</label>
+          <input
+            type="text"
+            name="phone"
+            value={customerData.phone}
+            onChange={handleChange}
+            id="phone"
+            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your phone number"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="email" className="text-lg text-gray-700 mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={customerData.email}
+            onChange={handleChange}
+            id="email"
+            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none"
+        >
+          Submit Order
+        </button>
+      </form>
+
+      {/* Modal (Pop-up) */}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Order Confirmed!</h3>
+            <p className="text-gray-600">Thank you for your order, {customerData.name}! We have received your details and will process your order shortly. A confirmation email has been sent to {customerData.email}.</p>
+            <div className="mt-4 text-right">
+              <button
+                onClick={closeModal}
+                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default OrderForm;

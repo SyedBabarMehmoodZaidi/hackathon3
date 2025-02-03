@@ -70,7 +70,7 @@ const LoginPage = () => {
                   </div>
 
                   <p className="text-sm text-gray-600 text-center mt-4">
-                    Don't have an account?{" "}
+                    Don&apos;t have an account?{" "}
                     <a href="#!" className="text-blue-600 font-medium">
                       Register here
                     </a>
@@ -130,7 +130,7 @@ const LoginPage = () => {
                 </div>
 
                 <p className="text-sm text-gray-600 text-center mt-4">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{" "}
                   <a href="#!" className="text-blue-600 font-medium">
                     Register here
                   </a>
